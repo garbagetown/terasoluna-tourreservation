@@ -33,10 +33,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
-@NoArgsConstructor 
+@ToString (exclude = "tourinfoList")
+@EqualsAndHashCode (exclude = "tourinfoList")
 @Entity
 @Table(name = "arrival")
 public class Arrival implements Serializable {
@@ -57,42 +59,5 @@ public class Arrival implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "arrival")
     private List<TourInfo> tourinfoList;
-
-    public Arrival(String arrCode) {
-        this.arrCode = arrCode;
-    }
-
-    public Arrival(String arrCode, String arrName) {
-        this.arrCode = arrCode;
-        this.arrName = arrName;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (arrCode != null ? arrCode.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are
-        // not set
-        if (!(object instanceof Arrival)) {
-            return false;
-        }
-        Arrival other = (Arrival) object;
-        if ((this.arrCode == null && other.arrCode != null)
-                || (this.arrCode != null && !this.arrCode.equals(other.arrCode))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "org.terasoluna.tourreservation.domain.model.Arrival[ arrCode="
-                + arrCode + " ]";
-    }
 
 }

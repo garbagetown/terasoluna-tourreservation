@@ -17,15 +17,13 @@ package org.terasoluna.tourreservation.domain.service.tourinfo;
 
 import java.io.Serializable;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  * Output of Price Calculation.<br>
  * 
  */
-@Getter
-@Setter
+@Data
 public class PriceCalculateOutput implements Serializable {
 
     /**

@@ -33,10 +33,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
-@NoArgsConstructor
+@ToString (exclude = "tourinfoList")
+@EqualsAndHashCode (exclude = "tourinfoList")
 @Entity
 @Table(name = "departure")
 public class Departure implements Serializable {
@@ -57,42 +59,5 @@ public class Departure implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "departure")
     private List<TourInfo> tourinfoList;
-
-    public Departure(String depCode) {
-        this.depCode = depCode;
-    }
-
-    public Departure(String depCode, String depName) {
-        this.depCode = depCode;
-        this.depName = depName;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (depCode != null ? depCode.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are
-        // not set
-        if (!(object instanceof Departure)) {
-            return false;
-        }
-        Departure other = (Departure) object;
-        if ((this.depCode == null && other.depCode != null)
-                || (this.depCode != null && !this.depCode.equals(other.depCode))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "org.terasoluna.tourreservation.domain.model.Departure[ depCode="
-                + depCode + " ]";
-    }
 
 }

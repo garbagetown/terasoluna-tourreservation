@@ -15,13 +15,11 @@
  */
 package org.terasoluna.tourreservation.domain.service.reserve;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import org.terasoluna.tourreservation.domain.model.Customer;
 
-@Getter
-@Setter
+@Data
 public class ReserveTourInput {
     private String tourCode;
 

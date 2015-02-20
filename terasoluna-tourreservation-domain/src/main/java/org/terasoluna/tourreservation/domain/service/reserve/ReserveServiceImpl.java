@@ -45,9 +45,6 @@ import org.terasoluna.tourreservation.domain.service.tourinfo.TourInfoSharedServ
 @Service
 public class ReserveServiceImpl implements ReserveService {
 
-   // private static final Logger logger = LoggerFactory
-   //         .getLogger(ReserveServiceImpl.class);
-
     @Inject
     ReserveRepository reserveRepository;
 

@@ -17,14 +17,12 @@ package org.terasoluna.tourreservation.domain.service.reserve;
 
 import java.util.Date;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import org.terasoluna.tourreservation.domain.model.Reserve;
 import org.terasoluna.tourreservation.domain.service.tourinfo.PriceCalculateOutput;
 
-@Getter
-@Setter
+@Data
 public class ReservationUpdateOutput {
 
     private PriceCalculateOutput priceCalculateOutput;

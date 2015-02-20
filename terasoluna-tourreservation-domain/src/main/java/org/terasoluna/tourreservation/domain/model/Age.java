@@ -29,13 +29,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "age")
 public class Age implements Serializable {
@@ -57,37 +54,5 @@ public class Age implements Serializable {
     @NotNull
     @Column(name = "age_rate")
     private int ageRate;
-
-    public Age(String ageCode) {
-        this.ageCode = ageCode;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (ageCode != null ? ageCode.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are
-        // not set
-        if (!(object instanceof Age)) {
-            return false;
-        }
-        Age other = (Age) object;
-        if ((this.ageCode == null && other.ageCode != null)
-                || (this.ageCode != null && !this.ageCode.equals(other.ageCode))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "org.terasoluna.tourreservation.domain.model.Age[ ageCode=" + ageCode
-                + " ]";
-    }
 
 }

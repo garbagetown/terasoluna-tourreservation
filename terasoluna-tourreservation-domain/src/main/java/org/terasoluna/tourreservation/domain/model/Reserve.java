@@ -36,9 +36,13 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
+@ToString (exclude = {"customer","tourInfo"})
+@EqualsAndHashCode (exclude = {"customer","tourInfo"})
 @NoArgsConstructor
 @Entity
 @Table(name = "reserve")
@@ -95,47 +99,8 @@ public class Reserve implements Serializable {
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Customer customer;
 
-    public Reserve(String reserveNo) {
-        this.reserveNo = reserveNo;
-    }
-
-    public Reserve(String reserveNo, Date reservedDay, int adultCount,
-            int childCount, String transfer, int sumPrice) {
-        this.reserveNo = reserveNo;
-        this.reservedDay = reservedDay;
-        this.adultCount = adultCount;
-        this.childCount = childCount;
-        this.transfer = transfer;
-        this.sumPrice = sumPrice;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (reserveNo != null ? reserveNo.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are
-        // not set
-        if (!(object instanceof Reserve)) {
-            return false;
-        }
-        Reserve other = (Reserve) object;
-        if ((this.reserveNo == null && other.reserveNo != null)
-                || (this.reserveNo != null && !this.reserveNo
-                        .equals(other.reserveNo))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "org.terasoluna.tourreservation.domain.model.Reserve[ reserveNo="
-                + reserveNo + " ]";
-    }
+	public Reserve(String reserveNo) {
+		this.reserveNo = reserveNo;
+	}
 
 }

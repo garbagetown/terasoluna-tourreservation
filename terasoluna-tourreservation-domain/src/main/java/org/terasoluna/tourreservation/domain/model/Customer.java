@@ -36,10 +36,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
-@NoArgsConstructor 
+@ToString (exclude = "reserveList")
+@EqualsAndHashCode (exclude = "reserveList")
+@NoArgsConstructor
 @Entity
 @Table(name = "customer")
 public class Customer implements Serializable {
@@ -107,52 +111,8 @@ public class Customer implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private List<Reserve> reserveList;
 
-    public Customer(String customerCode) {
-        this.customerCode = customerCode;
-    }
-
-    public Customer(String customerCode, String customerName,
-            String customerKana, String customerPass, Date customerBirth,
-            String customerJob, String customerTel, String customerPost,
-            String customerAdd) {
-        this.customerCode = customerCode;
-        this.customerName = customerName;
-        this.customerKana = customerKana;
-        this.customerPass = customerPass;
-        this.customerBirth = customerBirth;
-        this.customerJob = customerJob;
-        this.customerTel = customerTel;
-        this.customerPost = customerPost;
-        this.customerAdd = customerAdd;
-    }
-    
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (customerCode != null ? customerCode.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are
-        // not set
-        if (!(object instanceof Customer)) {
-            return false;
-        }
-        Customer other = (Customer) object;
-        if ((this.customerCode == null && other.customerCode != null)
-                || (this.customerCode != null && !this.customerCode
-                        .equals(other.customerCode))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "org.terasoluna.tourreservation.domain.model.Customer[ customerCode="
-                + customerCode + " ]";
-    }
+	public Customer(String customerCode) {
+		this.customerCode = customerCode;
+	}
 
 }

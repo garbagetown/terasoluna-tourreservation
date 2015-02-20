@@ -40,11 +40,15 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import org.joda.time.DateTime;
 
 @Data
+@ToString (exclude = {"reserveList","accommodation","arrival","departure"})
+@EqualsAndHashCode (exclude = {"reserveList","accommodation","arrival","departure"})
 @NoArgsConstructor
 @Entity
 @Table(name = "tourinfo")
@@ -123,56 +127,14 @@ public class TourInfo implements Serializable {
     private List<Reserve> reserveList;
 
     public TourInfo(String tourCode) {
-        this.tourCode = tourCode;
-    }
-
-    public TourInfo(String tourCode, Date plannedDay, String planNo,
-            String tourName, int tourDays, Date depDay, int avaRecMax,
-            int basePrice, String conductor) {
-        this.tourCode = tourCode;
-        this.plannedDay = plannedDay;
-        this.planNo = planNo;
-        this.tourName = tourName;
-        this.tourDays = tourDays;
-        this.depDay = depDay;
-        this.avaRecMax = avaRecMax;
-        this.basePrice = basePrice;
-        this.conductor = conductor;
-    }
-
+		this.tourCode = tourCode;
+	}
+    
     @Transient
     public DateTime getPaymentLimit() {
         DateTime paymentLimit = new DateTime(this.getDepDay());
         return paymentLimit.minusDays(7);
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (tourCode != null ? tourCode.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are
-        // not set
-        if (!(object instanceof TourInfo)) {
-            return false;
-        }
-        TourInfo other = (TourInfo) object;
-        if ((this.tourCode == null && other.tourCode != null)
-                || (this.tourCode != null && !this.tourCode
-                        .equals(other.tourCode))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "org.terasoluna.tourreservation.domain.model.TourInfo[ tourCode="
-                + tourCode + " ]";
-    }
 
 }

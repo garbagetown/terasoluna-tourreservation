@@ -18,11 +18,9 @@ package org.terasoluna.tourreservation.domain.repository.tourinfo;
 import java.io.Serializable;
 import java.util.Date;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class TourInfoSearchCriteria implements Serializable {
 
     /**
