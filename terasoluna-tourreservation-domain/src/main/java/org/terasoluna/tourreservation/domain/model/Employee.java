@@ -20,6 +20,7 @@
 package org.terasoluna.tourreservation.domain.model;
 
 import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,6 +29,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "employee")
 public class Employee implements Serializable {
@@ -58,51 +66,8 @@ public class Employee implements Serializable {
     @Column(name = "staff_pass")
     private String staffPass;
 
-    public Employee() {
-    }
-
     public Employee(String staffCode) {
         this.staffCode = staffCode;
-    }
-
-    public Employee(String staffCode, String staffName, String staffKana,
-            String staffPass) {
-        this.staffCode = staffCode;
-        this.staffName = staffName;
-        this.staffKana = staffKana;
-        this.staffPass = staffPass;
-    }
-
-    public String getStaffCode() {
-        return staffCode;
-    }
-
-    public void setStaffCode(String staffCode) {
-        this.staffCode = staffCode;
-    }
-
-    public String getStaffName() {
-        return staffName;
-    }
-
-    public void setStaffName(String staffName) {
-        this.staffName = staffName;
-    }
-
-    public String getStaffKana() {
-        return staffKana;
-    }
-
-    public void setStaffKana(String staffKana) {
-        this.staffKana = staffKana;
-    }
-
-    public String getStaffPass() {
-        return staffPass;
-    }
-
-    public void setStaffPass(String staffPass) {
-        this.staffPass = staffPass;
     }
 
     @Override

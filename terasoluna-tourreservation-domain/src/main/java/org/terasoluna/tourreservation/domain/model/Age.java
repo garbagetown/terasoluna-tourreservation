@@ -20,6 +20,7 @@
 package org.terasoluna.tourreservation.domain.model;
 
 import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,6 +29,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "age")
 public class Age implements Serializable {
@@ -50,41 +58,8 @@ public class Age implements Serializable {
     @Column(name = "age_rate")
     private int ageRate;
 
-    public Age() {
-    }
-
     public Age(String ageCode) {
         this.ageCode = ageCode;
-    }
-
-    public Age(String ageCode, String ageName, int ageRate) {
-        this.ageCode = ageCode;
-        this.ageName = ageName;
-        this.ageRate = ageRate;
-    }
-
-    public String getAgeCode() {
-        return ageCode;
-    }
-
-    public void setAgeCode(String ageCode) {
-        this.ageCode = ageCode;
-    }
-
-    public String getAgeName() {
-        return ageName;
-    }
-
-    public void setAgeName(String ageName) {
-        this.ageName = ageName;
-    }
-
-    public int getAgeRate() {
-        return ageRate;
-    }
-
-    public void setAgeRate(int ageRate) {
-        this.ageRate = ageRate;
     }
 
     @Override

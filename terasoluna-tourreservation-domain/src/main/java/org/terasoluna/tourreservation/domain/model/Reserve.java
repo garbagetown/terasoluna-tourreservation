@@ -35,6 +35,11 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "reserve")
 public class Reserve implements Serializable {
@@ -90,9 +95,6 @@ public class Reserve implements Serializable {
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Customer customer;
 
-    public Reserve() {
-    }
-
     public Reserve(String reserveNo) {
         this.reserveNo = reserveNo;
     }
@@ -105,78 +107,6 @@ public class Reserve implements Serializable {
         this.childCount = childCount;
         this.transfer = transfer;
         this.sumPrice = sumPrice;
-    }
-
-    public String getReserveNo() {
-        return reserveNo;
-    }
-
-    public void setReserveNo(String reserveNo) {
-        this.reserveNo = reserveNo;
-    }
-
-    public Date getReservedDay() {
-        return reservedDay;
-    }
-
-    public void setReservedDay(Date reservedDay) {
-        this.reservedDay = reservedDay;
-    }
-
-    public int getAdultCount() {
-        return adultCount;
-    }
-
-    public void setAdultCount(int adultCount) {
-        this.adultCount = adultCount;
-    }
-
-    public int getChildCount() {
-        return childCount;
-    }
-
-    public void setChildCount(int childCount) {
-        this.childCount = childCount;
-    }
-
-    public String getTransfer() {
-        return transfer;
-    }
-
-    public void setTransfer(String transfer) {
-        this.transfer = transfer;
-    }
-
-    public int getSumPrice() {
-        return sumPrice;
-    }
-
-    public void setSumPrice(int sumPrice) {
-        this.sumPrice = sumPrice;
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
-    }
-
-    public TourInfo getTourInfo() {
-        return tourInfo;
-    }
-
-    public void setTourInfo(TourInfo tourInfo) {
-        this.tourInfo = tourInfo;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
     }
 
     @Override

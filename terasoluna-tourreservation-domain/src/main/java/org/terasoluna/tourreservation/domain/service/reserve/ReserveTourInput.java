@@ -15,8 +15,13 @@
  */
 package org.terasoluna.tourreservation.domain.service.reserve;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import org.terasoluna.tourreservation.domain.model.Customer;
 
+@Getter
+@Setter
 public class ReserveTourInput {
     private String tourCode;
 
@@ -28,43 +33,5 @@ public class ReserveTourInput {
 
     private Customer customer;
 
-    public String getTourCode() {
-        return tourCode;
-    }
-
-    public void setTourCode(String tourCode) {
-        this.tourCode = tourCode;
-    }
-
-    public Integer getAdultCount() {
-        return adultCount;
-    }
-
-    public void setAdultCount(Integer adultCount) {
-        this.adultCount = adultCount;
-    }
-
-    public Integer getChildCount() {
-        return childCount;
-    }
-
-    public void setChildCount(Integer childCount) {
-        this.childCount = childCount;
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
+    
 }

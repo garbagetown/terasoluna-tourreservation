@@ -22,6 +22,7 @@ package org.terasoluna.tourreservation.domain.model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -38,8 +39,13 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import org.joda.time.DateTime;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "tourinfo")
 public class TourInfo implements Serializable {
@@ -116,9 +122,6 @@ public class TourInfo implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tourInfo")
     private List<Reserve> reserveList;
 
-    public TourInfo() {
-    }
-
     public TourInfo(String tourCode) {
         this.tourCode = tourCode;
     }
@@ -135,118 +138,6 @@ public class TourInfo implements Serializable {
         this.avaRecMax = avaRecMax;
         this.basePrice = basePrice;
         this.conductor = conductor;
-    }
-
-    public String getTourCode() {
-        return tourCode;
-    }
-
-    public void setTourCode(String tourCode) {
-        this.tourCode = tourCode;
-    }
-
-    public Date getPlannedDay() {
-        return plannedDay;
-    }
-
-    public void setPlannedDay(Date plannedDay) {
-        this.plannedDay = plannedDay;
-    }
-
-    public String getPlanNo() {
-        return planNo;
-    }
-
-    public void setPlanNo(String planNo) {
-        this.planNo = planNo;
-    }
-
-    public String getTourName() {
-        return tourName;
-    }
-
-    public void setTourName(String tourName) {
-        this.tourName = tourName;
-    }
-
-    public int getTourDays() {
-        return tourDays;
-    }
-
-    public void setTourDays(int tourDays) {
-        this.tourDays = tourDays;
-    }
-
-    public Date getDepDay() {
-        return depDay;
-    }
-
-    public void setDepDay(Date depDay) {
-        this.depDay = depDay;
-    }
-
-    public int getAvaRecMax() {
-        return avaRecMax;
-    }
-
-    public void setAvaRecMax(int avaRecMax) {
-        this.avaRecMax = avaRecMax;
-    }
-
-    public int getBasePrice() {
-        return basePrice;
-    }
-
-    public void setBasePrice(int basePrice) {
-        this.basePrice = basePrice;
-    }
-
-    public String getConductor() {
-        return conductor;
-    }
-
-    public void setConductor(String conductor) {
-        this.conductor = conductor;
-    }
-
-    public String getTourAbs() {
-        return tourAbs;
-    }
-
-    public void setTourAbs(String tourAbs) {
-        this.tourAbs = tourAbs;
-    }
-
-    public Departure getDeparture() {
-        return departure;
-    }
-
-    public void setDeparture(Departure departure) {
-        this.departure = departure;
-    }
-
-    public Arrival getArrival() {
-        return arrival;
-    }
-
-    public void setArrival(Arrival arrival) {
-        this.arrival = arrival;
-    }
-
-    public Accommodation getAccommodation() {
-        return accommodation;
-    }
-
-    public void setAccommodation(Accommodation accommodation) {
-        this.accommodation = accommodation;
-    }
-
-    public List<Reserve> getReserveList() {
-        return reserveList;
-    }
-
-    public void setReserveList(List<Reserve> reserveList) {
-        this.reserveList = reserveList;
     }
 
     @Transient

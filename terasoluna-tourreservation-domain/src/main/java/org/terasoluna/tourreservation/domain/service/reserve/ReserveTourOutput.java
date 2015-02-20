@@ -17,12 +17,16 @@ package org.terasoluna.tourreservation.domain.service.reserve;
 
 import java.util.Date;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import org.terasoluna.tourreservation.domain.model.Customer;
 import org.terasoluna.tourreservation.domain.model.Reserve;
 import org.terasoluna.tourreservation.domain.model.TourInfo;
 import org.terasoluna.tourreservation.domain.service.tourinfo.PriceCalculateOutput;
 
-
+@Getter
+@Setter
 public class ReserveTourOutput {
     private PriceCalculateOutput priceCalculateOutput;
 
@@ -34,44 +38,5 @@ public class ReserveTourOutput {
 
     private Date paymentTimeLimit;
 
-    public Reserve getReserve() {
-        return reserve;
-    }
-
-    public void setReserve(Reserve reserve) {
-        this.reserve = reserve;
-    }
-
-    public PriceCalculateOutput getPriceCalculateOutput() {
-        return priceCalculateOutput;
-    }
-
-    public void setPriceCalculateOutput(
-            PriceCalculateOutput priceCalculateOutput) {
-        this.priceCalculateOutput = priceCalculateOutput;
-    }
-
-    public Date getPaymentTimeLimit() {
-        return paymentTimeLimit;
-    }
-
-    public void setPaymentTimeLimit(Date paymentTimeLimit) {
-        this.paymentTimeLimit = paymentTimeLimit;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public TourInfo getTourInfo() {
-        return tourInfo;
-    }
-
-    public void setTourInfo(TourInfo tourInfo) {
-        this.tourInfo = tourInfo;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
+    
 }

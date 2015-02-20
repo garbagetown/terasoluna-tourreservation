@@ -21,6 +21,7 @@ package org.terasoluna.tourreservation.domain.model;
 
 import java.io.Serializable;
 import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -31,6 +32,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor 
 @Entity
 @Table(name = "arrival")
 public class Arrival implements Serializable {
@@ -52,9 +58,6 @@ public class Arrival implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "arrival")
     private List<TourInfo> tourinfoList;
 
-    public Arrival() {
-    }
-
     public Arrival(String arrCode) {
         this.arrCode = arrCode;
     }
@@ -62,30 +65,6 @@ public class Arrival implements Serializable {
     public Arrival(String arrCode, String arrName) {
         this.arrCode = arrCode;
         this.arrName = arrName;
-    }
-
-    public String getArrCode() {
-        return arrCode;
-    }
-
-    public void setArrCode(String arrCode) {
-        this.arrCode = arrCode;
-    }
-
-    public String getArrName() {
-        return arrName;
-    }
-
-    public void setArrName(String arrName) {
-        this.arrName = arrName;
-    }
-
-    public List<TourInfo> getTourinfoList() {
-        return tourinfoList;
-    }
-
-    public void setTourinfoList(List<TourInfo> tourinfoList) {
-        this.tourinfoList = tourinfoList;
     }
 
     @Override
