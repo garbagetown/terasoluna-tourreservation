@@ -23,9 +23,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -34,8 +32,6 @@ import org.hibernate.validator.constraints.NotEmpty;
  * Customer form object.
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class CustomerForm implements Serializable {
 
     /**

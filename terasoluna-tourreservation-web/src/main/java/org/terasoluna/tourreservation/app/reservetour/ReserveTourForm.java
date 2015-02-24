@@ -22,16 +22,12 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * Tour reserve form object.
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class ReserveTourForm implements Serializable {
 
 	/**
