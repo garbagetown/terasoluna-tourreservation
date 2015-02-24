@@ -15,8 +15,15 @@
  */
 package org.terasoluna.tourreservation.app.managereservation;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import org.terasoluna.tourreservation.domain.model.Reserve;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ReserveRowOutput {
     
     private Reserve reserve;
@@ -25,28 +32,4 @@ public class ReserveRowOutput {
 
     private String tourDays;
 
-    public Reserve getReserve() {
-        return reserve;
-    }
-
-    public void setReserve(Reserve reserve) {
-        this.reserve = reserve;
-    }
-
-
-    public Boolean getLimitExceeding() {
-        return limitExceeding;
-    }
-
-    public void setLimitExceeding(Boolean limitExceeding) {
-        this.limitExceeding = limitExceeding;
-    }
-
-    public String getTourDays() {
-        return tourDays;
-    }
-
-    public void setTourDays(String tourDays) {
-        this.tourDays = tourDays;
-    }
 }
