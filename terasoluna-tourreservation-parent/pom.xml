@@ -105,6 +105,7 @@
                 <configuration>
                     <configFile>${project.basedir}/../eclipse/formatter.xml
                     </configFile>
+                    <lineEnding>LF</lineEnding>
                 </configuration>
             </plugin>
         </plugins>
