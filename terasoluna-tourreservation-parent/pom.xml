@@ -97,6 +97,17 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>net.revelc.code</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <version>0.5.2</version>
+                <configuration>
+                    <configFile>${project.basedir}/../eclipse/formatter.xml
+                    </configFile>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
     <dependencyManagement>
         <dependencies>
